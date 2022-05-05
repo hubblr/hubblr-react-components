@@ -1,0 +1,113 @@
+/* styling for field labels */
+.form-label {
+  @apply font-bold;
+
+  /* gap before 'm-' is on purpose because 'form-label' contains 'm-' */
+  &:not([class*="mb-"]):not([class*=" m-"]) {
+    @apply mb-3;
+  }
+}
+
+/* styling for validation error text */
+.validation-error {
+  @apply text-sm font-bold text-red-400;
+}
+
+/* mixin for colors based on state */
+@mixin invalid {
+  &.not-valid {
+    @apply text-red-400 border-red-400 bg-red-200;
+  }
+}
+
+@mixin state-colorings {
+  &.selected {
+    @apply border-blue-300 bg-blue-100;
+    .sub-description {
+      @apply text-gray-400;
+    }
+  }
+
+  &.is-valid:not(.error-only) {
+    @apply border-green-400 bg-green-100;
+  }
+
+  &.pressed {
+    @apply border-blue-700 bg-blue-200;
+  }
+
+  .sub-description {
+    @apply text-sm;
+  }
+
+  @include invalid;
+}
+
+/* base styles for form element wrappers */
+@mixin form-element-base {
+  &:not([class*="border-"]) {
+    @apply border;
+  }
+
+  &:not([class*="rounded-"]) {
+    @apply rounded-lg;
+  }
+
+  &:not([class^="p-"]):not([class*=":p-"]):not([class*="px-"]) {
+    @apply px-3;
+  }
+
+  &:not([class^="p-"]):not([class*=":p-"]):not([class*="py-"]) {
+    @apply py-4;
+  }
+}
+
+/* wrapper around (clickable) form elements WITHOUT text input, e.g., radio boxes */
+.form-element-wrapper {
+  @include form-element-base;
+  @include state-colorings;
+
+  &:not([class*="border-"]) {
+    @apply border-gray-700;
+  }
+}
+
+.selector-wrapper {
+  @include form-element-base;
+  @include state-colorings;
+
+  &:not(.selected) {
+    @apply text-gray-700 border-gray-700 outline-none;
+  }
+}
+
+.error-only-wrapper {
+  @include invalid;
+  &.not-valid {
+    @include form-element-base;
+  }
+}
+
+/* wrapper around form elements WITH text input */
+.input-wrapper {
+  @include form-element-base;
+  @apply text-black;
+
+  &:not([class*="border-"]) {
+    @apply border-gray-700;
+  }
+
+  /* styling based on different state, set by class */
+  @include state-colorings;
+
+  &:focus {
+    outline: 0;
+    &:not(.pressed) {
+      @apply text-black border-blue-500 bg-white;
+    }
+  }
+}
+
+.new {
+  @apply border-blue-200 text-red-500 text-sm;
+}
