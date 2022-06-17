@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hubblr-react-components/static/css/main.81be8904.css",
+    "main.js": "/hubblr-react-components/static/js/main.4482c5de.js",
+    "index.html": "/hubblr-react-components/index.html",
+    "main.81be8904.css.map": "/hubblr-react-components/static/css/main.81be8904.css.map",
+    "main.4482c5de.js.map": "/hubblr-react-components/static/js/main.4482c5de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81be8904.css",
+    "static/js/main.4482c5de.js"
+  ]
+}
