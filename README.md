@@ -45,7 +45,7 @@ class FormExampleSimple extends Component {
 
 ## FormExampleSimple
 
-Check [here](https://hubblr.github.io/form/) to see some example use cases of the included components.
+Check [here](https://hubblr.github.io/hubblr-react-components/) to see some example use cases of the included components.
 
 TODO: REMOVE THESE
 
