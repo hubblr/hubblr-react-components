@@ -116,11 +116,11 @@ const DateInput = ({
       case "past":
         return date.isBefore()
           ? true
-          : "Bitte geben Sie ein Datum in der Vergangenheit an.";
+          : "Please enter a date in the past.";
       case "todayAndFuture":
         return date.isSame(now, "d") || date.isAfter(now)
           ? true
-          : "Bitte geben Sie ein noch nicht vergangenes Datum an.";
+          : "Please enter a date that has not yet passed.";
       default:
         return true;
     }
@@ -172,7 +172,7 @@ const DateInput = ({
                   !(Number(v) <= 31) ||
                   !(Number(v) >= 1)
                 ) {
-                  return "Bitte geben Sie einen gültigen Tag an.";
+                  return "Please enter a valid day.";
                 }
                 return isValidDate();
               }}
@@ -220,7 +220,7 @@ const DateInput = ({
                   !(Number(v) <= 12) ||
                   !(Number(v) >= 1)
                 ) {
-                  return "Bitte geben Sie einen gültigen Monat an.";
+                  return "Please enter a valid month.";
                 }
                 return isValidDate();
               }}
@@ -261,7 +261,7 @@ const DateInput = ({
                   isEmpty(v) ||
                   !(Number(v) > 1900)
                 ) {
-                  return "Bitte geben Sie ein gültiges Jahr an.";
+                  return "Please enter a valid year.";
                 }
                 return isValidDate();
               }}

@@ -81,7 +81,7 @@ FormWithErrorHint.propTypes = {
 
 FormWithErrorHint.defaultProps = {
   onSubmit: undefined,
-  onSubmitValidationFailed: () => 'Bitte überprüfen Sie Ihre Angaben im Formular.',
+  onSubmitValidationFailed: () => 'Please check the provided information in the form.',
 };
 
 export default FormWithErrorHint;
