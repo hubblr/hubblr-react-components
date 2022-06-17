@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# @hubblr/form
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Form with validation.
 
-## Available Scripts
+[![NPM](https://img.shields.io/npm/v/@hubblr/form.svg)](https://www.npmjs.com/package/@hubblr/form) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-In the project directory, you can run:
+This example was bootstrapped with [Create React FormExampleSimple](https://github.com/facebook/create-react-app).
 
-### `npm start`
+# Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* [Usage](#usage)
+* [Overview](#overview)
+    * [FormExampleSimple](#example)
+    * [Components](#components)
+        * [Form](#form)
+        * [Inputs](#inputs)
+    * [Validation](#validation)
+        * [Registering a custom input](#registering-a-custom-input)
+* [Contribute](#contribute)
+    * [Setup the Project](#setup-the-project)
+    * [Deploy](#deploy)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install --save @hubblr/form
+```
 
-### `npm run build`
+## Usage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+import React, { Component } from 'react'
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+import MyComponent from '@hubblr/form'
+import '@hubblr/form/dist/index.css'
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+class FormExampleSimple extends Component {
+  render() {
+    return <MyComponent />
+  }
+}
+```
+# Overview
 
-### `npm run eject`
+## FormExampleSimple
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Check [here](https://hubblr.github.io/form/) to see some example use cases of the included components.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+TODO: REMOVE THESE
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- basic text inputs
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Components
 
-## Learn More
+### Form
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Prop                     | Type            | Required           | Default    | Description                                                                                                                                                                                                                                      |
+|--------------------------|-----------------|--------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| children                 | `node`          | :heavy_check_mark: | -          | The content of the `<Form>`. Should include some input components.                                                                                                                                                                               |
+| isDisabled               | `boolean`       |                    | `false`    | Whether the user can submit the form.                                                                                                                                                                                                            |
+| onSubmit                 | `() => boolean` | :heavy-check-mark: |            | Callback to fire when form is submitted. If this returns `false` trigger another validation afterwards.                                                                                                                                          |
+| onSubmitValidationFailed | `() => void`    |                    | `() => {}` | Callback to fire when form validation fails on submit.                                                                                                                                                                                           |
+| className                | `string`        |                    | ""         | CSS classes to apply to the form.                                                                                                                                                                                                                |
+| navIsFixed               | `boolean`       |                    | `false`    | When your page contains a navbar positioned with `position: sticky` or `position: fixed` jumping to the first unselected element needs to take its size into account. Set this prop to `true` if you want the form to correct its jump behavior. |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Input
 
-### Code Splitting
+| Prop                 | Type                          | Required           | Default     | Description                                                                                                                                                                                |
+|----------------------|-------------------------------|--------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| children             | `node`                        |                    | null        | The content of the `<Input>`. Should include some input components.                                                                                                                        |
+| name                 | `string`                      | :heavy_check_mark: |             | HTML `<input>` `name` attribute.                                                                                                                                                           |
+| groupName            | `string`                      |                    | ""          | Name used for validation. All `<Input>`s with the same `groupName` are validated together. Is used to identify the error message for the `<ValidationError>`. Defaults to the `name` prop. |
+| placeholder          | `string`                      |                    | ""          | HTML `<input>` `placeholder` attribute.                                                                                                                                                    |
+| inputClasses         | `string`                      |                    | ""          | `class` directly applied to the `<input>` element.                                                                                                                                         |
+| groupClassNames      | `string`                      |                    | ""          | `class` applied to a wrapper around both the label and the `<input>` element.                                                                                                              |
+| innerGroupClassNames | `string`                      |                    | ""          | `class` applied to a wrapper around the `<input>` element.                                                                                                                                 |
+| labelClassNames      | `string`                      |                    | ""          | `class` applied to the label above the `<input>`.                                                                                                                                          |
+| type                 | `string`                      |                    | "text"      | HTML `<input>` `type` attribute.                                                                                                                                                           |
+| onValidate           | `() => boolean`               |                    | `undefined` | Validation of user input. Return `true` if input is valid, otherwise return `false` or an error message.                                                                                   | Validation of user input. Return `true` if input is valid, otherwise return `false` or an error message.                                                                                   |
+| onBlur               | `() => void`                  |                    | `undefined` | Function that runs after validation on `<input>` blur.                                                                                                                                     |
+| value                | `string`                      |                    | `undefined` | HTML `<input>` `type` attribute.                                                                                                                                                           |
+| inputRef             | `React.Ref<HTMLInputElement>` |                    | `undefined` | React ref attached to the `<input>` element.                                                                                                                                               |
+| label                | `string`                      |                    | `undefined` | Text label above the `<input>` element.                                                                                                                                                    |
+| showValidationError  | `boolean`                     |                    | `false`     | Whether to render a `<ValidationError>` with the current error message under the `<input>`.                                                                                                |
+| stickPlaceholderHint | `boolean`                     |                    | `false`     | Whether to show the label above the `<input>` element.                                                                                                                                     |
+| validateWith         | `string[]`                    |                    | `[]`        | Other related inputs to also validate during this component's validation.                                                                                                                  |
+| relatedFields        | `string[]`                    |                    | `[]`        | Other related inputs to also validate during this component's validation.                                                                                                                  |
+| hideValidateOnEmpty  | `boolean`                     |                    | `false`     | If set to `true` hides validation error if the input is empty. The error will still show on form submit.                                                                                   |
+| isOptional           | `boolean`                     |                    | `false`     | If set to `true` this field may be empty on form submit.                                                                                                                                   |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Validation
 
-### Analyzing the Bundle Size
+### Registering a custom input
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Contribute
 
-### Making a Progressive Web App
+## Setup the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1) You can run `npm install` and then `cd example && npm start` to test your package
 
-### Advanced Configuration
+## Deploy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1) Make sure tests pass with `npm test`
+2) Change the version number in package.json (see guidelines for [semantic versioning](https://docs.npmjs.com/about-semantic-versioning))
+3) Build the project with `npm build`
+4) Publish the newest version with `npm publish`
+5) Deploy the newest example to github pages with `npm run deploy`
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT © [LennartWeihs](https://github.com/LennartWeihs)

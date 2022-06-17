@@ -19,10 +19,16 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.1",
     "@testing-library/user-event": "^13.5.0",
+    "libphonenumber-js": "^1.9.52",
+    "moment": "^2.29.3",
+    "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-places-autocomplete": "^7.3.0",
+    "react-responsive": "^9.0.0-beta.6",
     "react-scripts": "5.0.1",
     "sass": "^1.51.0",
+    "validator": "^13.7.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
