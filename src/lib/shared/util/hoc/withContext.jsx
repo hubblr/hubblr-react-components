@@ -1,8 +1,12 @@
-import React from 'react';
+import React from "react";
 
-export default (Context, propName) => (WrappedComponent) => (props) =>
+const withContext = (Context, propName) => (WrappedComponent) => (props) =>
   (
     <Context.Consumer>
-      {(contextValue) => <WrappedComponent {...props} {...{ [propName]: contextValue }} />}
+      {(contextValue) => (
+        <WrappedComponent {...props} {...{ [propName]: contextValue }} />
+      )}
     </Context.Consumer>
   );
+
+export default withContext;
