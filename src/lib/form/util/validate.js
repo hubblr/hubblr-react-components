@@ -7,15 +7,15 @@ export function validateNotEmpty(errMsg) {
 }
 
 export const validateFirstName = validateNotEmpty(
-  "Bitte geben Sie Ihren Vornamen an."
+  "Please enter your first name."
 );
 
 export const validateLastName = validateNotEmpty(
-  "Bitte geben Sie Ihren Nachnamen an."
+  "Please enter your last name."
 );
 
 export const validateFullName = validateNotEmpty(
-  "Bitte geben Sie Ihren Namen an."
+  "Please enter your name."
 );
 
 // FIXME: add back functionality to differentiate fixed line from mobile numbers
@@ -38,7 +38,7 @@ export function validatePhoneNumber(errMsg, setPhoneNumber) {
 
 export function validateTime(v) {
   if (!v || !isTime(v)) {
-    return "Bitte geben Sie eine valide Uhrzeit an.";
+    return "Please enter a valid time.";
   }
   return true;
 }

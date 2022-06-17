@@ -58,11 +58,11 @@ EmailInput.propTypes = {
 };
 
 EmailInput.defaultProps = {
-  placeholder: "Emailadresse",
-  label: "Emailadresse",
+  placeholder: "email address",
+  label: "email address",
   name: "email",
   maxLength: 255,
-  errorMsg: "Bitte geben Sie eine gültige Email-Adresse an.",
+  errorMsg: "Please enter a valid email address.",
   skipValidation: false,
 };
 

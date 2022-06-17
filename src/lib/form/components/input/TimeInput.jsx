@@ -30,7 +30,7 @@ TimeInput.propTypes = {
 
 TimeInput.defaultProps = {
   placeholder: "08:00",
-  label: "Uhrzeit",
+  label: "time",
   name: "time",
 };
 
