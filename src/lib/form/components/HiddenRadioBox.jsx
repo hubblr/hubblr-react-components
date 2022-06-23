@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { generateUniqueID } from "../../shared/util/helpers";
-import { RefPropType } from "../../prop-types/reactPropTypes";
+// import { RefPropType } from "../../prop-types/reactPropTypes";
 
 const HiddenRadioBox = ({
   children,
@@ -44,7 +44,8 @@ HiddenRadioBox.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  forwardedRef: RefPropType,
+  // TODO: re-create a ref prop type
+  forwardedRef: PropTypes.any,
 };
 
 HiddenRadioBox.defaultProps = {

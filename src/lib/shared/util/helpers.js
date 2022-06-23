@@ -185,39 +185,6 @@ export const isScreenXL =
   typeof window !== "undefined" &&
   window.innerWidth > SmallDesktopBreakpoint - 1;
 
-/* eslint-disable react/jsx-filename-extension,react/jsx-props-no-spreading */
-export const DesktopQuery = (props) => (
-  <Responsive {...props} minWidth={TabletBreakpoint} />
-);
-
-export const MobileQuery = (props) => (
-  <Responsive {...props} maxWidth={MobileBreakpoint - 1} />
-);
-
-export const MobileAndTabletQuery = (props) => (
-  <Responsive {...props} maxWidth={TabletBreakpoint - 1} />
-);
-
-export const TabletQuery = (props) => (
-  <Responsive {...props} minWidth={MobileBreakpoint} />
-);
-
-export const TabletOnlyQuery = (props) => (
-  <Responsive
-    {...props}
-    minWidth={MobileBreakpoint}
-    maxWidth={TabletBreakpoint - 1}
-  />
-);
-
-export const SmallDesktopQuery = (props) => (
-  <Responsive {...props} maxWidth={SmallDesktopBreakpoint - 1} />
-);
-
-export const LargeDesktopQuery = (props) => (
-  <Responsive {...props} minWidth={SmallDesktopBreakpoint} />
-);
-
 export const desktopOnlyFunction = (fn, isMobile) => {
   return isMobile ? null : fn;
 };

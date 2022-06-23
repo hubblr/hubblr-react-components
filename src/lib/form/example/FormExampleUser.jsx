@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../styles/index.scss";
+import "../../../index.scss";
 import Form from "../components/Form";
 import FormLabel from "../components/FormLabel";
 import Input from "../components/Input";
@@ -108,7 +108,6 @@ function FormExampleUser() {
           )}
           showValidationError
           maxLength={128}
-          data-recording-sensitive="true"
         />
       </div>
 
