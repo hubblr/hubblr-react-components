@@ -1,0 +1,33 @@
+.running-list {
+    animation: running-text-animation infinite linear backwards;
+    animation-duration: calc(var(--list-items) * 7s * 1);
+    will-change: transform;
+    text-shadow: var(--animation-width, 0) 0 currentColor;
+    animation-play-state: running;
+    transition-duration: 0ms;
+    transition-duration: 0ms;
+  }
+  
+  @keyframes running-text-animation {
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .running-list-item {
+    transition-duration: inherit;
+    margin-right: 0.4ch;
+    margin-left: 0.4ch;
+    display: inline-block;
+  }
+  
+  .running-list-wrapper {
+    overflow-x: hidden;
+    margin-right: -50vw;
+    margin-left: -50vw;
+    right: 50%;
+    left: 50%;
+    width: 100vw;
+    position: relative;
+  }
+  
