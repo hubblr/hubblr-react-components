@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { jumpToFirstElement } from "../../shared/util/helpers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { jumpToFirstElement } from '../../shared/util/helpers';
 
 export const FormInputContext = React.createContext(undefined);
 export const FormValidationErrorsContext = React.createContext({});
@@ -222,7 +222,7 @@ class Form extends React.Component {
     } = {}
   ) {
     componentNamesToValidate.forEach((name) => {
-      if (typeof this.componentValidators[name] === "function") {
+      if (typeof this.componentValidators[name] === 'function') {
         this.componentValidators[name]({
           markAsTouched,
           triggeredByValidateWith,
@@ -288,7 +288,7 @@ Form.propTypes = {
 };
 
 Form.defaultProps = {
-  className: "",
+  className: '',
   isDisabled: false,
   serverValidationErrors: {},
   onSubmitValidationFailed: () => {},

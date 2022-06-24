@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { generateUniqueID } from "../../shared/util/helpers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { generateUniqueID } from '../../shared/util/helpers';
 // import { RefPropType } from "../../prop-types/reactPropTypes";
 
 const HiddenRadioBox = ({
@@ -51,7 +51,7 @@ HiddenRadioBox.propTypes = {
 };
 
 HiddenRadioBox.defaultProps = {
-  className: "",
+  className: '',
   disabled: false,
   forwardedRef: () => {},
 };

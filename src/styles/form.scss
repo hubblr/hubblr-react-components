@@ -3,7 +3,7 @@
   @apply font-bold;
 
   /* gap before 'm-' is on purpose because 'form-label' contains 'm-' */
-  &:not([class*="mb-"]):not([class*=" m-"]) {
+  &:not([class*='mb-']):not([class*=' m-']) {
     @apply mb-3;
   }
 }
@@ -45,19 +45,19 @@
 
 /* base styles for form element wrappers */
 @mixin form-element-base {
-  &:not([class*="border-"]) {
+  &:not([class*='border-']) {
     @apply border;
   }
 
-  &:not([class*="rounded-"]) {
+  &:not([class*='rounded-']) {
     @apply rounded-lg;
   }
 
-  &:not([class^="p-"]):not([class*=":p-"]):not([class*="px-"]) {
+  &:not([class^='p-']):not([class*=':p-']):not([class*='px-']) {
     @apply px-3;
   }
 
-  &:not([class^="p-"]):not([class*=":p-"]):not([class*="py-"]) {
+  &:not([class^='p-']):not([class*=':p-']):not([class*='py-']) {
     @apply py-4;
   }
 }
@@ -67,7 +67,7 @@
   @include form-element-base;
   @include state-colorings;
 
-  &:not([class*="border-"]) {
+  &:not([class*='border-']) {
     @apply border-gray-700;
   }
 }
@@ -93,7 +93,7 @@
   @include form-element-base;
   @apply text-black;
 
-  &:not([class*="border-"]) {
+  &:not([class*='border-']) {
     @apply border-gray-700;
   }
 

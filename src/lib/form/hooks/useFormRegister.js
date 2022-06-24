@@ -1,6 +1,6 @@
-import useRegisterComponentFilledCheck from "./useRegisterComponentFilledCheck";
-import useFormConnectedValidation from "./useFormConnectedValidation";
-import useValidationClassName from "./useValidationClassName";
+import useRegisterComponentFilledCheck from './useRegisterComponentFilledCheck';
+import useFormConnectedValidation from './useFormConnectedValidation';
+import useValidationClassName from './useValidationClassName';
 
 export default function useFormRegister(
   groupName,

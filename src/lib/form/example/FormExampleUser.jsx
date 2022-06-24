@@ -1,37 +1,37 @@
-import React, { useState } from "react";
-import "../../../index.scss";
-import Form from "../components/Form";
-import FormLabel from "../components/FormLabel";
-import Input from "../components/Input";
-import DateInput from "../components/input/DateInput";
-import EmailInput from "../components/input/EmailInput";
+import React, { useState } from 'react';
+import '../../../index.scss';
+import Form from '../components/Form';
+import FormLabel from '../components/FormLabel';
+import Input from '../components/Input';
+import DateInput from '../components/input/DateInput';
+import EmailInput from '../components/input/EmailInput';
 import {
   validateFirstName,
   validateLastName,
   validatePhoneNumber,
-} from "../util/validate";
+} from '../util/validate';
 
 function FormExampleUser() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [birthdate, setBirthdate] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [birthdate, setBirthdate] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
 
   const inputNames = {
-    firstName: "patient-firstname-input",
-    lastName: "patient-lastname-input",
+    firstName: 'patient-firstname-input',
+    lastName: 'patient-lastname-input',
     birthdate: {
-      day: "birthday-day",
-      month: "birthday-month",
-      year: "birthday-year",
+      day: 'birthday-day',
+      month: 'birthday-month',
+      year: 'birthday-year',
     },
-    phoneNumber: "patient-phonenumber-input",
-    email: "patient-email-input",
+    phoneNumber: 'patient-phonenumber-input',
+    email: 'patient-email-input',
   };
 
   const onSubmit = () => {
-    console.log("SUBMIT!");
+    console.log('SUBMIT!');
   };
 
   return (
@@ -101,7 +101,7 @@ function FormExampleUser() {
           name={inputNames.phoneNumber}
           placeholder="+49176846...."
           onValidate={validatePhoneNumber(
-            "Bitte geben Sie eine gültige Festnetz- oder Mobiltelefonnummer an.",
+            'Bitte geben Sie eine gültige Festnetz- oder Mobiltelefonnummer an.',
             (n) => {
               setPhoneNumber(n);
             }

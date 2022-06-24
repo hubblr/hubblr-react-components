@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import isEmpty from "validator/es/lib/isEmpty";
-import { debounce } from "../../shared/util/helpers";
-import { FormInputContext, FormValidationErrorsContext } from "./Form";
-import ValidationError from "./ValidationError";
-import withContext from "../../shared/util/hoc/withContext";
+import React from 'react';
+import PropTypes from 'prop-types';
+import isEmpty from 'validator/es/lib/isEmpty';
+import { debounce } from '../../shared/util/helpers';
+import { FormInputContext, FormValidationErrorsContext } from './Form';
+import ValidationError from './ValidationError';
+import withContext from '../../shared/util/hoc/withContext';
 
 class Input extends React.Component {
   validateAfterChangeDebounce = debounce(
@@ -52,7 +52,7 @@ class Input extends React.Component {
       formInputContext.markComponentGroupTouched(groupName, false);
     }
 
-    window.addEventListener("mouseup", this.setNotPressed);
+    window.addEventListener('mouseup', this.setNotPressed);
   }
 
   componentDidUpdate(prevProps) {
@@ -100,7 +100,7 @@ class Input extends React.Component {
       formInputContext.unregisterComponentFilledCheck(groupName);
     }
 
-    window.removeEventListener("mouseup", this.setNotPressed);
+    window.removeEventListener('mouseup', this.setNotPressed);
   }
 
   getGroupName() {
@@ -155,7 +155,7 @@ class Input extends React.Component {
     } = this.props;
 
     const groupName = this.getGroupName();
-    const isValueEmpty = !currValue.length || currValue === "";
+    const isValueEmpty = !currValue.length || currValue === '';
 
     // perform validation function and check validity / note potential error messages
     const validationResult = onValidate ? onValidate(currValue) : true;
@@ -192,7 +192,7 @@ class Input extends React.Component {
     }
 
     // update validation error display if error is not to be hidden
-    if (typeof newShowValidationError === "boolean") {
+    if (typeof newShowValidationError === 'boolean') {
       const { showValidationError: curShowValidationError } = this.state;
       // prevent recursion (especially important for validateWith calls)
       if (newShowValidationError !== curShowValidationError) {
@@ -202,7 +202,7 @@ class Input extends React.Component {
 
     // update touched status
     if (
-      typeof newComponentGroupTouchStatus === "boolean" &&
+      typeof newComponentGroupTouchStatus === 'boolean' &&
       formInputContext &&
       formInputContext.markComponentGroupTouched
     ) {
@@ -277,17 +277,17 @@ class Input extends React.Component {
     const touched = formInputContext?.componentGroupsTouched[usedGroupName];
     const isValid = !(usedGroupName in validationErrors);
 
-    let validationClasses = "";
+    let validationClasses = '';
     if (isPressed) {
-      validationClasses += "pressed";
+      validationClasses += 'pressed';
     } else if (
       (onValidate && touched) ||
       (!onValidate && isOptional && !isValueEmpty)
     ) {
       if (isValid === true) {
-        validationClasses += "is-valid";
+        validationClasses += 'is-valid';
       } else {
-        validationClasses += "not-valid";
+        validationClasses += 'not-valid';
       }
     }
 
@@ -305,11 +305,11 @@ class Input extends React.Component {
             value={value}
             placeholder={placeholder}
             className={`w-full ${inputClasses} ${validationClasses} ${
-              showPlaceholderHint ? "placeholder-hint-visible" : ""
-            } ${!isValueEmpty ? "filled" : ""}`}
+              showPlaceholderHint ? 'placeholder-hint-visible' : ''
+            } ${!isValueEmpty ? 'filled' : ''}`}
             ref={inputRef}
             onBlur={() => {
-              if (typeof value !== "string" || isEmpty(value)) {
+              if (typeof value !== 'string' || isEmpty(value)) {
                 this.validateInput({ markAsTouched: true });
               }
               if (onBlur) {
@@ -373,15 +373,15 @@ Input.propTypes = {
 
 Input.defaultProps = {
   children: null,
-  groupName: "",
-  inputClasses: "",
-  groupClassNames: "",
-  innerGroupClassNames: "",
-  labelClassNames: "",
+  groupName: '',
+  inputClasses: '',
+  groupClassNames: '',
+  innerGroupClassNames: '',
+  labelClassNames: '',
   onValidate: undefined,
   onBlur: undefined,
   value: undefined,
-  type: "text",
+  type: 'text',
   inputRef: undefined,
   label: undefined,
   formInputContext: undefined,
@@ -395,5 +395,5 @@ Input.defaultProps = {
 
 export default withContext(
   FormValidationErrorsContext,
-  "validationErrors"
-)(withContext(FormInputContext, "formInputContext")(Input));
+  'validationErrors'
+)(withContext(FormInputContext, 'formInputContext')(Input));

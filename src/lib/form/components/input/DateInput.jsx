@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import PropTypes from "prop-types";
-import moment from "moment";
-import isEmpty from "validator/es/lib/isEmpty";
+import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import moment from 'moment';
+import isEmpty from 'validator/es/lib/isEmpty';
 
-import Input from "../Input";
-import ValidationError from "../ValidationError";
-import useInitialValidationIfSet from "../../hooks/useInitialValidationIfSet";
-import useRegisterGroupJumpRef from "../../hooks/useRegisterGroupJumpRef";
-import { isStringInteger } from "../../../shared/util/helpers";
+import Input from '../Input';
+import ValidationError from '../ValidationError';
+import useInitialValidationIfSet from '../../hooks/useInitialValidationIfSet';
+import useRegisterGroupJumpRef from '../../hooks/useRegisterGroupJumpRef';
+import { isStringInteger } from '../../../shared/util/helpers';
 
 const currentYear = new Date().getFullYear();
 
@@ -28,31 +28,31 @@ const DateInput = ({
   const [yearValue, setYearValue] = useState(undefined);
 
   // initial validation of the three input fields
-  useInitialValidationIfSet("birthday-day", dayValue);
-  useInitialValidationIfSet("birthday-month", monthValue);
-  useInitialValidationIfSet("birthday-year", yearValue);
+  useInitialValidationIfSet('birthday-day', dayValue);
+  useInitialValidationIfSet('birthday-month', monthValue);
+  useInitialValidationIfSet('birthday-year', yearValue);
 
   // register all date input fields to the single related label
   const dateJumpRef = useRef();
-  useRegisterGroupJumpRef("birthday-day", dateJumpRef);
-  useRegisterGroupJumpRef("birthday-month", dateJumpRef);
-  useRegisterGroupJumpRef("birthday-year", dateJumpRef);
+  useRegisterGroupJumpRef('birthday-day', dateJumpRef);
+  useRegisterGroupJumpRef('birthday-month', dateJumpRef);
+  useRegisterGroupJumpRef('birthday-year', dateJumpRef);
 
   // validation messages from isValidDate must be cleared from input fields by validateWith calls
   const determineOtherValidatedFields = (groupName) => {
     const otherValues = [];
     const otherFieldNames = [];
-    if (groupName !== "birthday-day") {
+    if (groupName !== 'birthday-day') {
       otherValues.push(dayValue);
-      otherFieldNames.push("birthday-day");
+      otherFieldNames.push('birthday-day');
     }
-    if (groupName !== "birthday-month") {
+    if (groupName !== 'birthday-month') {
       otherValues.push(monthValue);
-      otherFieldNames.push("birthday-month");
+      otherFieldNames.push('birthday-month');
     }
-    if (groupName !== "birthday-year") {
+    if (groupName !== 'birthday-year') {
       otherValues.push(yearValue);
-      otherFieldNames.push("birthday-year");
+      otherFieldNames.push('birthday-year');
     }
     const allOtherValuesSet = otherValues.findIndex((val) => !val) === -1;
     return allOtherValuesSet ? otherFieldNames : [];
@@ -74,9 +74,9 @@ const DateInput = ({
   useEffect(() => {
     if (value && (!dayValue || !monthValue || !yearValue)) {
       const currentValue = moment(value);
-      setDayValue(currentValue.format("DD"));
-      setMonthValue(currentValue.format("MM"));
-      setYearValue(currentValue.format("YYYY"));
+      setDayValue(currentValue.format('DD'));
+      setMonthValue(currentValue.format('MM'));
+      setYearValue(currentValue.format('YYYY'));
     }
     // only react to external setting of value, not to internal changes to day / month / year
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -86,7 +86,7 @@ const DateInput = ({
   useEffect(() => {
     const currentDateSelect = `${yearValue}-${monthValue}-${dayValue}`;
     if (
-      moment(currentDateSelect, "YYYY-MM-DD").isValid() &&
+      moment(currentDateSelect, 'YYYY-MM-DD').isValid() &&
       yearValue &&
       monthValue &&
       dayValue &&
@@ -104,7 +104,7 @@ const DateInput = ({
       return true;
     }
 
-    const date = moment(`${yearValue}-${monthValue}-${dayValue}`, "YYYY-MM-DD");
+    const date = moment(`${yearValue}-${monthValue}-${dayValue}`, 'YYYY-MM-DD');
 
     if (!date.isValid()) {
       return false;
@@ -113,12 +113,12 @@ const DateInput = ({
     // time based validation
     const now = new Date();
     switch (restriction) {
-      case "past":
-        return date.isBefore() ? true : "Please enter a date in the past.";
-      case "todayAndFuture":
-        return date.isSame(now, "d") || date.isAfter(now)
+      case 'past':
+        return date.isBefore() ? true : 'Please enter a date in the past.';
+      case 'todayAndFuture':
+        return date.isSame(now, 'd') || date.isAfter(now)
           ? true
-          : "Please enter a date that has not yet passed.";
+          : 'Please enter a date that has not yet passed.';
       default:
         return true;
     }
@@ -133,12 +133,12 @@ const DateInput = ({
         <div className="flex flex-row">
           <div
             className="w-16 flex-shrink-0 mr-2 md:mr-1"
-            style={{ maxWidth: "5rem" }}
+            style={{ maxWidth: '5rem' }}
           >
             <Input
               inputClasses={inputClasses}
               type="text"
-              value={dayValue || ""}
+              value={dayValue || ''}
               name="birthday-day"
               labelClassNames={inputLabelClassName}
               placeholder="TT"
@@ -161,16 +161,16 @@ const DateInput = ({
               }}
               autoComplete="bday-day"
               label="Tag"
-              relatedFields={["birthday-month", "birthday-year"]}
-              validateWith={determineOtherValidatedFields("birthday-day")}
+              relatedFields={['birthday-month', 'birthday-year']}
+              validateWith={determineOtherValidatedFields('birthday-day')}
               onValidate={(v) => {
                 if (
-                  typeof v !== "string" ||
+                  typeof v !== 'string' ||
                   isEmpty(v) ||
                   !(Number(v) <= 31) ||
                   !(Number(v) >= 1)
                 ) {
-                  return "Please enter a valid day.";
+                  return 'Please enter a valid day.';
                 }
                 return isValidDate();
               }}
@@ -181,12 +181,12 @@ const DateInput = ({
           </div>
           <div
             className="w-16 flex-shrink-0 mr-2 md:mr-1"
-            style={{ maxWidth: "5rem" }}
+            style={{ maxWidth: '5rem' }}
           >
             <Input
               inputClasses={`${inputClasses}`}
               type="text"
-              value={monthValue || ""}
+              value={monthValue || ''}
               name="birthday-month"
               placeholder="MM"
               labelClassNames={inputLabelClassName}
@@ -206,19 +206,19 @@ const DateInput = ({
               }}
               inputRef={monthComponent}
               autoComplete="bday-month"
-              relatedFields={["birthday-day", "birthday-year"]}
-              validateWith={determineOtherValidatedFields("birthday-month")}
+              relatedFields={['birthday-day', 'birthday-year']}
+              validateWith={determineOtherValidatedFields('birthday-month')}
               label="Monat"
               max={12}
               min={1}
               onValidate={(v) => {
                 if (
-                  typeof v !== "string" ||
+                  typeof v !== 'string' ||
                   isEmpty(v) ||
                   !(Number(v) <= 12) ||
                   !(Number(v) >= 1)
                 ) {
-                  return "Please enter a valid month.";
+                  return 'Please enter a valid month.';
                 }
                 return isValidDate();
               }}
@@ -231,11 +231,11 @@ const DateInput = ({
             <Input
               inputClasses={`${inputClasses}`}
               type="text"
-              value={yearValue || ""}
+              value={yearValue || ''}
               name="birthday-year"
               labelClassNames={inputLabelClassName}
-              relatedFields={["birthday-month", "birthday-day"]}
-              validateWith={determineOtherValidatedFields("birthday-year")}
+              relatedFields={['birthday-month', 'birthday-day']}
+              validateWith={determineOtherValidatedFields('birthday-year')}
               placeholder="YYYY"
               onChange={(e) => {
                 const input = e.target.value;
@@ -251,15 +251,15 @@ const DateInput = ({
               inputRef={yearComponent}
               autoComplete="bday-year"
               label="Jahr"
-              min={restriction === "todayAndFuture" ? currentYear : 1901}
-              max={restriction === "past" ? currentYear : 9999}
+              min={restriction === 'todayAndFuture' ? currentYear : 1901}
+              max={restriction === 'past' ? currentYear : 9999}
               onValidate={(v) => {
                 if (
-                  typeof v !== "string" ||
+                  typeof v !== 'string' ||
                   isEmpty(v) ||
                   !(Number(v) > 1900)
                 ) {
-                  return "Please enter a valid year.";
+                  return 'Please enter a valid year.';
                 }
                 return isValidDate();
               }}
@@ -270,7 +270,7 @@ const DateInput = ({
           </div>
         </div>
         <ValidationError
-          fieldName={["birthday-day", "birthday-month", "birthday-year"]}
+          fieldName={['birthday-day', 'birthday-month', 'birthday-year']}
         />
       </div>
     </>
@@ -289,20 +289,20 @@ DateInput.propTypes = {
   labelClassNames: PropTypes.string,
   inputLabelClassName: PropTypes.string,
   isOptional: PropTypes.bool,
-  restriction: PropTypes.oneOf(["past", "todayAndFuture", null]),
+  restriction: PropTypes.oneOf(['past', 'todayAndFuture', null]),
   inputClasses: PropTypes.string,
 };
 
 DateInput.defaultProps = {
   value: Date.now(),
-  placeholder: "",
-  label: "Datum",
+  placeholder: '',
+  label: 'Datum',
   onChange: () => {},
-  labelClassNames: "",
-  inputLabelClassName: "",
+  labelClassNames: '',
+  inputLabelClassName: '',
   isOptional: false,
   restriction: null,
-  inputClasses: "",
+  inputClasses: '',
 };
 
 export default DateInput;

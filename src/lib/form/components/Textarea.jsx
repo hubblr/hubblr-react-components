@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import TextareaAutosize from "./textarea/TextareaAutosize";
+import React from 'react';
+import PropTypes from 'prop-types';
+import TextareaAutosize from './textarea/TextareaAutosize';
 
 const Textarea = ({
   placeholder,
@@ -31,10 +31,10 @@ Textarea.propTypes = {
 };
 
 Textarea.defaultProps = {
-  placeholder: "",
-  className: "",
-  inputClassName: "",
-  textSize: "",
+  placeholder: '',
+  className: '',
+  inputClassName: '',
+  textSize: '',
   required: false,
 };
 

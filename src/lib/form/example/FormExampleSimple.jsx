@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Form from "../components/Form";
-import Input from "../components/Input";
-import { validateNotEmpty } from "../util/validate";
+import React, { useState } from 'react';
+import Form from '../components/Form';
+import Input from '../components/Input';
+import { validateNotEmpty } from '../util/validate';
 
 function FormExampleSimple() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [isSubmitAccepted, setIsSubmitAccepted] = useState(false);
 
   const onSubmit = () => {
@@ -15,7 +15,7 @@ function FormExampleSimple() {
     setInputValue(e.target.value);
   };
 
-  const validate = validateNotEmpty("Empty input!");
+  const validate = validateNotEmpty('Empty input!');
 
   return (
     <div className="max-w-[32rem]">

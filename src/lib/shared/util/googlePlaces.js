@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import {
   geocodeByAddress,
   geocodeByPlaceId,
   getLatLng,
-} from "react-places-autocomplete";
-import { isNumber } from "./helpers";
+} from 'react-places-autocomplete';
+import { isNumber } from './helpers';
 
 /* ---------------- FORMAT AUTOCOMPLETE SUGGESTIONS ---------------- */
 
 export function trimAutocompleteSuggestion(suggestion) {
   const { description } = suggestion;
   // discards any following parts of the description (i.e., the land)
-  const [street, city] = description.split(",");
-  const cityWithoutZip = city.replace(/^\s*\d{5}\s/, "");
+  const [street, city] = description.split(',');
+  const cityWithoutZip = city.replace(/^\s*\d{5}\s/, '');
   return `${street}, ${cityWithoutZip}`;
 }
 
@@ -23,15 +23,15 @@ export function formatGeocodeObject(
   { excludeStreet, excludeZip, excludeCity } = {}
 ) {
   if (!geocodeObject) {
-    return "";
+    return '';
   }
-  let result = "";
+  let result = '';
 
   if (!excludeStreet) {
     result += `${geocodeObject.streetWithoutNumber} ${geocodeObject.streetNumber}`;
   }
   if (!excludeStreet && !excludeCity) {
-    result += ", ";
+    result += ', ';
   }
   if (!excludeCity) {
     if (!excludeZip) {
@@ -50,29 +50,29 @@ export function validateGeocodeResult(geocodeResult) {
 
   if (
     geocodeResult.address_components.find((comp) =>
-      comp.types.includes("route")
+      comp.types.includes('route')
     ) === undefined &&
     geocodeResult.address_components.find((comp) =>
-      comp.types.includes("street_address")
+      comp.types.includes('street_address')
     ) === undefined
   ) {
-    missingComponents.push("Straßenname");
+    missingComponents.push('Straßenname');
   }
 
   if (
     geocodeResult.address_components.find((comp) =>
-      comp.types.includes("street_number")
+      comp.types.includes('street_number')
     ) === undefined
   ) {
-    missingComponents.push("Hausnummer");
+    missingComponents.push('Hausnummer');
   }
 
   if (
     geocodeResult.address_components.find((comp) =>
-      comp.types.includes("locality")
+      comp.types.includes('locality')
     ) === undefined
   ) {
-    missingComponents.push("Stadt");
+    missingComponents.push('Stadt');
   }
 
   return missingComponents;
@@ -80,9 +80,9 @@ export function validateGeocodeResult(geocodeResult) {
 
 export function getNumber(str) {
   let numberWasHit = false;
-  let numberString = "";
+  let numberString = '';
 
-  str.split(" ").forEach((part) => {
+  str.split(' ').forEach((part) => {
     if (isNumber(part.charAt(0))) {
       numberWasHit = true;
     }
@@ -99,7 +99,7 @@ export function getCity(geocodeResult) {
   let city = null;
 
   geocodeResult.address_components.forEach(({ long_name: name, types }) => {
-    if (types.includes("locality")) {
+    if (types.includes('locality')) {
       city = name;
     }
   });
@@ -115,8 +115,8 @@ export function getStreetWithoutNumber(geocodeResult) {
   ) {
     const addressComponent = geocodeResult.address_components[index];
     if (
-      addressComponent.types.includes("route") ||
-      addressComponent.types.includes("street_address")
+      addressComponent.types.includes('route') ||
+      addressComponent.types.includes('street_address')
     ) {
       return addressComponent.long_name;
     }
@@ -132,7 +132,7 @@ export function getStreetNumber(geocodeResult) {
     index += 1
   ) {
     const addressComponent = geocodeResult.address_components[index];
-    if (addressComponent.types.includes("street_number")) {
+    if (addressComponent.types.includes('street_number')) {
       return addressComponent.long_name;
     }
   }
@@ -150,7 +150,7 @@ export function getZipCode(geocodeResult) {
   let zipCode = null;
 
   geocodeResult.address_components.forEach(({ long_name: name, types }) => {
-    if (types.includes("postal_code")) {
+    if (types.includes('postal_code')) {
       zipCode = name;
     }
   });
@@ -173,8 +173,8 @@ export async function fetchGeocodeResultsByAddress(address) {
   const city = getCity(geocodeResult);
 
   // Hacky check if gecode cuts letter from number, if so use original address input, but only if check afterwards succeeds
-  const enteredAddress = address.split(",")[0];
-  const geocodeAddress = geocodeResult.formatted_address.split(",")[0];
+  const enteredAddress = address.split(',')[0];
+  const geocodeAddress = geocodeResult.formatted_address.split(',')[0];
 
   // if address matched now, change the number to input number
   if (enteredAddress !== geocodeAddress) {

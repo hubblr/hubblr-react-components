@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const ResultLayoverItem = ({ className, children, onClick, ...props }) => {
   return (
@@ -20,6 +20,6 @@ ResultLayoverItem.propTypes = {
 };
 ResultLayoverItem.defaultProps = {
   onClick: null,
-  className: "",
+  className: '',
 };
 export default ResultLayoverItem;

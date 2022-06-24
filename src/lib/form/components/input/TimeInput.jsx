@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Input from "../Input";
-import { validateTime } from "../../util/validate";
-import useInitialValidationIfSet from "../../hooks/useInitialValidationIfSet";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Input from '../Input';
+import { validateTime } from '../../util/validate';
+import useInitialValidationIfSet from '../../hooks/useInitialValidationIfSet';
 
 function TimeInput({ value, placeholder, label, name, ...otherProps }) {
   useInitialValidationIfSet(name, value);
@@ -29,9 +29,9 @@ TimeInput.propTypes = {
 };
 
 TimeInput.defaultProps = {
-  placeholder: "08:00",
-  label: "time",
-  name: "time",
+  placeholder: '08:00',
+  label: 'time',
+  name: 'time',
 };
 
 export default TimeInput;

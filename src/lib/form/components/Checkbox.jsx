@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export const CheckIconDefault = (checkMarkColor) => (
   <svg viewBox="0 0 15 11">
@@ -38,7 +38,7 @@ const Checkbox = ({
         <button
           type="button"
           className={` ${
-            sizeXl ? "w-5 h-5" : "w-4 h-4"
+            sizeXl ? 'w-5 h-5' : 'w-4 h-4'
           } rounded border-2 ${borderColorClass} focus:outline-none p-px flex-shrink-0`}
           onClick={() => onChange(!checked)}
           disabled={disabled}
@@ -56,9 +56,9 @@ const Checkbox = ({
           className={`${
             !resetDefaultLabelClassName
               ? `ml-2 cursor-pointer leading-tight ${textColorClass} ${
-                  checked ? "font-bold" : "font-semibold"
+                  checked ? 'font-bold' : 'font-semibold'
                 }`
-              : ""
+              : ''
           }  ${labelClassName}`}
         >
           {label}
@@ -91,17 +91,17 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   onChange: () => {},
-  label: "",
-  className: "",
-  labelClassName: "",
+  label: '',
+  className: '',
+  labelClassName: '',
   resetDefaultLabelClassName: false,
   checked: false,
   hiddenCheckBox: false,
   disabled: false,
   sizeXl: false,
-  borderColorClass: "border-blue-500",
-  checkMarkColor: "#016AFF",
-  textColorClass: " text-blue-500",
+  borderColorClass: 'border-blue-500',
+  checkMarkColor: '#016AFF',
+  textColorClass: ' text-blue-500',
 };
 
 export default Checkbox;
