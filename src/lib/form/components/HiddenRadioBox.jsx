@@ -45,7 +45,9 @@ HiddenRadioBox.propTypes = {
   name: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   // TODO: re-create a ref prop type
-  forwardedRef: PropTypes.any,
+  forwardedRef: PropTypes.shape({
+    value: PropTypes.string,
+  }),
 };
 
 HiddenRadioBox.defaultProps = {

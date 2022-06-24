@@ -1,8 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import TextareaAutosize from './textarea/TextareaAutosize';
+import React from "react";
+import PropTypes from "prop-types";
+import TextareaAutosize from "./textarea/TextareaAutosize";
 
-const Textarea = ({ placeholder, className, inputClassName, textSize, required, ...props }) => {
+const Textarea = ({
+  placeholder,
+  className,
+  inputClassName,
+  textSize,
+  required,
+  ...props
+}) => {
   return (
     <div className={`input-group ${className} size-${textSize}`}>
       <TextareaAutosize
@@ -24,10 +31,10 @@ Textarea.propTypes = {
 };
 
 Textarea.defaultProps = {
-  placeholder: '',
-  className: '',
-  inputClassName: '',
-  textSize: '',
+  placeholder: "",
+  className: "",
+  inputClassName: "",
+  textSize: "",
   required: false,
 };
 

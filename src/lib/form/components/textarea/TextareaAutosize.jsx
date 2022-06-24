@@ -1,12 +1,12 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import autosize from 'autosize';
-import getLineHeight from 'line-height';
+import React, { useLayoutEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import autosize from "autosize";
+import getLineHeight from "line-height";
 
-const resizeEvent = 'autosize:resized';
+const resizeEvent = "autosize:resized";
 
 function TextareaAutosize({ className, rows, maxRows, onResize, ...props }) {
-  const [maxHeight, setMaxHeight] = useState('');
+  const [maxHeight, setMaxHeight] = useState("");
 
   const textareaRef = useRef();
 
@@ -33,8 +33,8 @@ function TextareaAutosize({ className, rows, maxRows, onResize, ...props }) {
   /* INIT STYLE */
 
   useLayoutEffect(() => {
-    if (typeof maxRows !== 'number') {
-      setMaxHeight('');
+    if (typeof maxRows !== "number") {
+      setMaxHeight("");
       return;
     }
     const lineHeight = getLineHeight(textareaRef.current);
@@ -66,7 +66,7 @@ TextareaAutosize.propTypes = {
 };
 
 TextareaAutosize.defaultProps = {
-  className: '',
+  className: "",
   rows: undefined,
   maxRows: undefined,
   onResize: null,

@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { m as motion } from 'framer-motion';
+import React from "react";
+import PropTypes from "prop-types";
+import { m as motion } from "framer-motion";
 
 const animationVariants = {
   visible: {
@@ -24,11 +24,11 @@ const animationVariants = {
 const AnimatedCheckboxLabelSquare = ({ checked, className }) => (
   <div
     className={`checkbox-label-square flex-shrink-0 flex flex-col items-center justify-center w-6 h-6 ${
-      checked ? 'checked' : ''
+      checked ? "checked" : ""
     } ${className}`}
   >
     <motion.div
-      animate={checked ? 'visible' : 'hidden'}
+      animate={checked ? "visible" : "hidden"}
       variants={animationVariants}
       initial={false}
     >
@@ -52,7 +52,7 @@ AnimatedCheckboxLabelSquare.propTypes = {
 
 AnimatedCheckboxLabelSquare.defaultProps = {
   checked: false,
-  className: '',
+  className: "",
 };
 
 export default AnimatedCheckboxLabelSquare;

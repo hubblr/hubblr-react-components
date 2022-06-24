@@ -1,5 +1,5 @@
 import React from "react";
-import Responsive, { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 
 /* ---------------- STRING FORMATTING ---------------- */
 

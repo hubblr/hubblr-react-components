@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Checkbox from './Checkbox';
+import React from "react";
+import PropTypes from "prop-types";
+import Checkbox from "./Checkbox";
 
 const HiddenCheckBox = ({
   children,
@@ -24,8 +24,8 @@ const HiddenCheckBox = ({
           ? labelClassName
           : `border-2 rounded animate w-full cursor-pointer leading-tight ${
               checked
-                ? 'bg-blue-300 text-white border-brand-blue'
-                : 'bg-gray-100 text-gray-800 border-gray-300'
+                ? "bg-blue-300 text-white border-brand-blue"
+                : "bg-gray-100 text-gray-800 border-gray-300"
             } ${labelClassName}`
       }
       {...Props}
@@ -43,8 +43,8 @@ HiddenCheckBox.propTypes = {
 };
 
 HiddenCheckBox.defaultProps = {
-  className: '',
-  labelClassName: '',
+  className: "",
+  labelClassName: "",
   resetLabelClassName: false,
 };
 

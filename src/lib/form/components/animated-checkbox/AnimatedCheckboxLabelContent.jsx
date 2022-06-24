@@ -1,12 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CheckmarkXL from './CheckmarkXL';
-import Checkmark from './Checkmark';
+import React from "react";
+import PropTypes from "prop-types";
+import CheckmarkXL from "./CheckmarkXL";
+import Checkmark from "./Checkmark";
 
 const AnimatedCheckboxLabelContent = ({ size, checked, className }) => (
-  <div className={`animated-checkbox ${checked ? 'is-checked' : ''} ${className}`}>
-    <div className={`check ${size !== 'xl' ? '' : 'size-xl'}`}>
-      <div>{size !== 'xl' ? <Checkmark /> : <CheckmarkXL />}</div>
+  <div
+    className={`animated-checkbox ${checked ? "is-checked" : ""} ${className}`}
+  >
+    <div className={`check ${size !== "xl" ? "" : "size-xl"}`}>
+      <div>{size !== "xl" ? <Checkmark /> : <CheckmarkXL />}</div>
     </div>
   </div>
 );
@@ -18,9 +20,9 @@ AnimatedCheckboxLabelContent.propTypes = {
 };
 
 AnimatedCheckboxLabelContent.defaultProps = {
-  size: 'normal',
+  size: "normal",
   checked: false,
-  className: '',
+  className: "",
 };
 
 export default AnimatedCheckboxLabelContent;

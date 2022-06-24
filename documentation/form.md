@@ -3,14 +3,14 @@
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import MyComponent from '@hubblr/form'
-import '@hubblr/form/dist/index.scss'
+import MyComponent from "@hubblr/form";
+import "@hubblr/form/dist/index.scss";
 
 class FormExampleSimple extends Component {
   render() {
-    return <MyComponent />
+    return <MyComponent />;
   }
 }
 ```
@@ -26,7 +26,7 @@ TODO: REMOVE THESE
 ### Form
 
 | Prop                     | Type            | Required           | Default    | Description                                                                                                                                                                                                                                      |
-|--------------------------|-----------------|--------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------ | --------------- | ------------------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | children                 | `node`          | :heavy_check_mark: | -          | The content of the `<Form>`. Should include some input components.                                                                                                                                                                               |
 | isDisabled               | `boolean`       |                    | `false`    | Whether the user can submit the form.                                                                                                                                                                                                            |
 | onSubmit                 | `() => boolean` | :heavy-check-mark: |            | Callback to fire when form is submitted. If this returns `false` trigger another validation afterwards.                                                                                                                                          |
@@ -37,7 +37,7 @@ TODO: REMOVE THESE
 ### Input
 
 | Prop                 | Type                          | Required           | Default     | Description                                                                                                                                                                                |
-|----------------------|-------------------------------|--------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------- | ----------------------------- | ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
 | children             | `node`                        |                    | null        | The content of the `<Input>`. Should include some input components.                                                                                                                        |
 | name                 | `string`                      | :heavy_check_mark: |             | HTML `<input>` `name` attribute.                                                                                                                                                           |
 | groupName            | `string`                      |                    | ""          | Name used for validation. All `<Input>`s with the same `groupName` are validated together. Is used to identify the error message for the `<ValidationError>`. Defaults to the `name` prop. |
@@ -47,7 +47,7 @@ TODO: REMOVE THESE
 | innerGroupClassNames | `string`                      |                    | ""          | `class` applied to a wrapper around the `<input>` element.                                                                                                                                 |
 | labelClassNames      | `string`                      |                    | ""          | `class` applied to the label above the `<input>`.                                                                                                                                          |
 | type                 | `string`                      |                    | "text"      | HTML `<input>` `type` attribute.                                                                                                                                                           |
-| onValidate           | `() => boolean`               |                    | `undefined` | Validation of user input. Return `true` if input is valid, otherwise return `false` or an error message.                                                                                   | Validation of user input. Return `true` if input is valid, otherwise return `false` or an error message.                                                                                   |
+| onValidate           | `() => boolean`               |                    | `undefined` | Validation of user input. Return `true` if input is valid, otherwise return `false` or an error message.                                                                                   | Validation of user input. Return `true` if input is valid, otherwise return `false` or an error message. |
 | onBlur               | `() => void`                  |                    | `undefined` | Function that runs after validation on `<input>` blur.                                                                                                                                     |
 | value                | `string`                      |                    | `undefined` | HTML `<input>` `type` attribute.                                                                                                                                                           |
 | inputRef             | `React.Ref<HTMLInputElement>` |                    | `undefined` | React ref attached to the `<input>` element.                                                                                                                                               |
@@ -62,4 +62,3 @@ TODO: REMOVE THESE
 ## Validation
 
 ### Registering a custom input
-

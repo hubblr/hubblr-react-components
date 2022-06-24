@@ -14,9 +14,7 @@ export const validateLastName = validateNotEmpty(
   "Please enter your last name."
 );
 
-export const validateFullName = validateNotEmpty(
-  "Please enter your name."
-);
+export const validateFullName = validateNotEmpty("Please enter your name.");
 
 // FIXME: add back functionality to differentiate fixed line from mobile numbers
 export function validatePhoneNumber(errMsg, setPhoneNumber) {

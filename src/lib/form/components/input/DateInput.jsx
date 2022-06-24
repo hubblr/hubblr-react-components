@@ -114,9 +114,7 @@ const DateInput = ({
     const now = new Date();
     switch (restriction) {
       case "past":
-        return date.isBefore()
-          ? true
-          : "Please enter a date in the past.";
+        return date.isBefore() ? true : "Please enter a date in the past.";
       case "todayAndFuture":
         return date.isSame(now, "d") || date.isAfter(now)
           ? true
