@@ -35,9 +35,12 @@ export default {
     postcss(),
     babel({ extensions, runtimeHelpers: true }),
     terser(),
-    // copy useful example files (e.g., css)
+    // copy useful example files (e.g., css) & types
     copy({
-      targets: [{ src: 'src/styles/*', dest: 'dist/styles' }],
+      targets: [
+        { src: 'src/styles/*', dest: 'dist/styles' },
+        { src: 'src/types/index.d.ts', dest: 'dist' },
+      ],
     }),
   ],
 };
