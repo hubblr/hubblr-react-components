@@ -11,24 +11,26 @@ This example was bootstrapped with [Create React FormExampleSimple](https://gith
 - [Usage](#usage)
 - [Overview of Components](#overview-of-components)
 - [Contribute](#contribute)
+  - [Install](#install)
   - [Setup the Project](#setup-the-project)
   - [Deploy](#deploy)
 
 # Overview of components
 
 - [Form](documentation/form.md)
+- [Running List](documentation/running-list.md)
 
 # Contribute
 
 ## Install
 
 ```bash
-npm install --save @hubblr/form
+npm install --save @hubblr/hubblr-react-components
 ```
 
 ## Setup the Project
 
-1. You can run `npm install` and then `cd example && npm start` to test your package
+1. You can run `npm install` and then `npm start` to test your package
 
 ## Deploy
 

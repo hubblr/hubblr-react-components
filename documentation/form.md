@@ -1,27 +1,22 @@
-# Overview
+# Overview for the Form Component
 
 ## Usage
 
 ```jsx
 import React, { Component } from 'react';
 
-import MyComponent from '@hubblr/form';
-import '@hubblr/form/dist/index.scss';
+import { Form } from '@hubblr/hubblr-react-components';
 
-class FormExampleSimple extends Component {
+class FormUsage extends Component {
   render() {
-    return <MyComponent />;
+    return <Form />;
   }
 }
 ```
 
-## FormExampleSimple
+## Form Example
 
 Check [here](https://hubblr.github.io/hubblr-react-components/) to see some example use cases of the included components.
-
-TODO: REMOVE THESE
-
-- basic text inputs
 
 ### Form
 
