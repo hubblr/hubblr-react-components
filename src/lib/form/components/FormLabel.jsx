@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import useRegisterGroupJumpRef from "../hooks/useRegisterGroupJumpRef";
-import useFallbackRef from "../../shared/hooks/useFallbackRef";
+import React from 'react';
+import PropTypes from 'prop-types';
+import useRegisterGroupJumpRef from '../hooks/useRegisterGroupJumpRef';
+import useFallbackRef from '../../shared/hooks/useFallbackRef';
 
 const FormLabel = React.forwardRef(
   ({ children, className, groupName }, givenRef) => {
@@ -23,7 +23,7 @@ FormLabel.propTypes = {
 };
 
 FormLabel.defaultProps = {
-  className: "",
+  className: '',
 };
 
 export default FormLabel;

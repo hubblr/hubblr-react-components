@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 import {
   FormInputContext,
   FormValidationErrorsContext,
-} from "../components/Form";
+} from '../components/Form';
 
 export default function useValidationClassName(
   groupName,
@@ -14,11 +14,11 @@ export default function useValidationClassName(
   const isValid = !validationErrors?.[groupName];
 
   if (!isTouched) {
-    return "";
+    return '';
   }
 
   if (isValid) {
-    return onlyInvalid ? "" : "is-valid";
+    return onlyInvalid ? '' : 'is-valid';
   }
-  return "not-valid";
+  return 'not-valid';
 }

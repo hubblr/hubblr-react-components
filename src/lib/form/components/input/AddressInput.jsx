@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import PlacesAutocomplete from "react-places-autocomplete";
-import { useIsMobile } from "../../../shared/util/helpers";
-import Input from "../Input";
-import ResultLayoverItem from "../../../shared/components/ResultLayoverItem";
-import { trimAutocompleteSuggestion } from "../../../shared/util/googlePlaces";
+import React from 'react';
+import PropTypes from 'prop-types';
+import PlacesAutocomplete from 'react-places-autocomplete';
+import { useIsMobile } from '../../../shared/util/helpers';
+import Input from '../Input';
+import ResultLayoverItem from '../../../shared/components/ResultLayoverItem';
+import { trimAutocompleteSuggestion } from '../../../shared/util/googlePlaces';
 
 function AddressInput({
   displayValue,
@@ -19,7 +19,7 @@ function AddressInput({
   const isMobile = useIsMobile();
 
   const onChange = (v) => {
-    if (v === "") {
+    if (v === '') {
       onSelectLocation(undefined);
       return;
     }
@@ -36,9 +36,9 @@ function AddressInput({
       onSelect={onSelectLocation}
       highlightFirstSuggestion={!isMobile}
       searchOptions={{
-        types: ["address"],
+        types: ['address'],
         componentRestrictions: {
-          country: "de",
+          country: 'de',
         },
       }}
     >
@@ -67,7 +67,7 @@ function AddressInput({
                         <ResultLayoverItem
                           key={suggestion.description}
                           className={`flex flex-row text-left px-8 py-4 ${
-                            suggestion.active ? "bg-brand-ice-blue" : ""
+                            suggestion.active ? 'bg-brand-ice-blue' : ''
                           }`}
                         >
                           <div data-recording-sensitive="true">
@@ -98,11 +98,11 @@ AddressInput.propTypes = {
 };
 
 AddressInput.defaultProps = {
-  displayValue: "",
-  placeholder: "",
+  displayValue: '',
+  placeholder: '',
   onInputChange: null,
   onSelectLocation: null,
-  containerClassName: "",
+  containerClassName: '',
   showError: false,
   hideSuggestions: false,
 };

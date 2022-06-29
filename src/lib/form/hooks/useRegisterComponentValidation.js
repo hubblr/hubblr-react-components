@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react";
-import { FormInputContext } from "../components/Form";
+import { useContext, useEffect } from 'react';
+import { FormInputContext } from '../components/Form';
 
 export default function useRegisterComponentValidation(groupName, validate) {
   const { registerComponentValidator, unregisterComponentValidator } =

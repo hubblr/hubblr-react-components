@@ -1,22 +1,22 @@
-import React from "react";
-import Responsive, { useMediaQuery } from "react-responsive";
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 /* ---------------- STRING FORMATTING ---------------- */
 
 const newlineRegex = /(\r\n|\r|\n)/g;
 export const nl2br = (text) => {
-  if (typeof text === "number") {
+  if (typeof text === 'number') {
     return text;
   }
 
-  if (typeof text !== "string") {
-    return "";
+  if (typeof text !== 'string') {
+    return '';
   }
 
   return text.split(newlineRegex).map((line, index) => {
     if (line.match(newlineRegex)) {
       // eslint-disable-next-line
-      return React.createElement("br", { key: index });
+      return React.createElement('br', { key: index });
     }
 
     return line;
@@ -26,9 +26,9 @@ export const nl2br = (text) => {
 export const millisecondsToHours = (milliseconds) =>
   milliseconds / 1000 / 60 / 60;
 
-export const translateCurrency = (price, currencyCode, locales = "de-DE") => {
+export const translateCurrency = (price, currencyCode, locales = 'de-DE') => {
   return new Intl.NumberFormat(locales, {
-    style: "currency",
+    style: 'currency',
     currency: currencyCode,
   }).format(price);
 };
@@ -82,7 +82,7 @@ export const deepEqualityCheck = (a, b) => {
 
   // if its about scalar types, just fall back to basic equality checking
   if (
-    typeof a !== "object" ||
+    typeof a !== 'object' ||
     (a === null && b === null) ||
     (a === undefined && b === undefined)
   ) {
@@ -139,7 +139,7 @@ export function isPLZ(v) {
 
 export function findPLZ(v) {
   const res = /[\d]{5}/.exec(v);
-  return res ? res[0] : "";
+  return res ? res[0] : '';
 }
 
 export function isHouseNumber(v) {
@@ -176,13 +176,13 @@ export const useIsTablet = () => {
 };
 
 export const IsScreenMD =
-  typeof window !== "undefined" && window.innerWidth > MobileBreakpoint - 1;
+  typeof window !== 'undefined' && window.innerWidth > MobileBreakpoint - 1;
 
 export const IsScreenLG =
-  typeof window !== "undefined" && window.innerWidth > TabletBreakpoint - 1;
+  typeof window !== 'undefined' && window.innerWidth > TabletBreakpoint - 1;
 
 export const isScreenXL =
-  typeof window !== "undefined" &&
+  typeof window !== 'undefined' &&
   window.innerWidth > SmallDesktopBreakpoint - 1;
 
 export const desktopOnlyFunction = (fn, isMobile) => {
@@ -204,46 +204,46 @@ export const removeClassFromBody = (cl) => {
 export const applyModalManipulationsToBody = () => {
   // welcome to safari
   document.body.style.top = `-${window.scrollY}px`;
-  document.body.style.position = "fixed";
-  document.body.style.width = "100vw";
+  document.body.style.position = 'fixed';
+  document.body.style.width = '100vw';
 
   // allows us to check if the body style & scroll pos was change because of the safari modal workaround
-  document.body.classList.add("layover-open");
+  document.body.classList.add('layover-open');
 };
 
 export const revertModalManipulationOnBody = ({
   overrideScroll = false,
   scrollCallback = null,
 } = {}) => {
-  document.body.style.position = "";
-  document.body.style.width = "";
-  document.body.classList.remove("layover-open");
+  document.body.style.position = '';
+  document.body.style.width = '';
+  document.body.classList.remove('layover-open');
   if (overrideScroll) {
     if (scrollCallback) {
       scrollCallback();
     }
   } else {
     const scrollY = document.body.style.top;
-    window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
+    window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
   }
-  document.body.style.top = "";
+  document.body.style.top = '';
 };
 
 export const performActionWithoutTransitions = (callback) => {
-  addClassToBody("no-transition");
+  addClassToBody('no-transition');
   callback();
   setTimeout(() => {
-    removeClassFromBody("no-transition");
+    removeClassFromBody('no-transition');
   }, 1);
 };
 
 export const getNavHeight = () => {
-  const nav = document.querySelector("nav");
+  const nav = document.querySelector('nav');
   return nav ? nav.clientHeight : 0;
 };
 
 export const scroll = (x, y, smooth = false) => {
-  window.scrollTo({ left: x, top: y, behavior: smooth ? "smooth" : "auto" });
+  window.scrollTo({ left: x, top: y, behavior: smooth ? 'smooth' : 'auto' });
 };
 
 export const jumpBelowNav = (pos, smooth = false) => {
@@ -280,11 +280,11 @@ export const jumpToFirstElement = (
 };
 
 export const disablePageScroll = () => {
-  addClassToBody("overflow-hidden");
+  addClassToBody('overflow-hidden');
 };
 
 export const enablePageScroll = () => {
-  removeClassFromBody("overflow-hidden");
+  removeClassFromBody('overflow-hidden');
 };
 
 export const wrapDOMElement = (el, wrapper) => {
@@ -294,7 +294,7 @@ export const wrapDOMElement = (el, wrapper) => {
 
 export const CallbackOnEnter = (callback) => (e) => {
   e.persist();
-  if (e.key === "Enter" && !e.shiftKey && typeof callback === "function") {
+  if (e.key === 'Enter' && !e.shiftKey && typeof callback === 'function') {
     callback(e);
   }
 };

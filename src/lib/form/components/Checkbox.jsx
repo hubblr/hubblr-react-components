@@ -34,45 +34,48 @@ const Checkbox = ({
 
   return (
     <div className={className}>
-      <>
-        {!hiddenCheckBox ? (
-          <button
-            type="button"
-            className={` ${
-              sizeXl ? 'w-5 h-5' : 'w-4 h-4'
-            } rounded border-2 ${borderColorClass} focus:outline-none p-px flex-shrink-0`}
-            onClick={() => onChange(!checked)}
-            disabled={disabled}
-          >
-            {checked ? CheckIconDefault(checkMarkColor) : null}
-          </button>
-        ) : null}
+      {!hiddenCheckBox ? (
+        <button
+          type="button"
+          className={` ${
+            sizeXl ? 'w-5 h-5' : 'w-4 h-4'
+          } rounded border-2 ${borderColorClass} focus:outline-none p-px flex-shrink-0`}
+          onClick={() => onChange(!checked)}
+          disabled={disabled}
+        >
+          {checked ? CheckIconDefault(checkMarkColor) : null}
+        </button>
+      ) : null}
 
-        {hasLabel ? (
-          <button
-            onClick={() => onChange(!checked)}
-            type="button"
-            disabled={disabled}
-            tabIndex="0"
-            className={`${
-              !resetDefaultLabelClassName
-                ? `ml-2 cursor-pointer leading-tight ${textColorClass} ${
-                    checked ? 'font-bold' : 'font-semibold'
-                  }`
-                : ''
-            }  ${labelClassName}`}
-          >
-            {label}
-          </button>
-        ) : null}
-      </>
+      {hasLabel ? (
+        <button
+          onClick={() => onChange(!checked)}
+          type="button"
+          disabled={disabled}
+          tabIndex="0"
+          className={`${
+            !resetDefaultLabelClassName
+              ? `ml-2 cursor-pointer leading-tight ${textColorClass} ${
+                  checked ? 'font-bold' : 'font-semibold'
+                }`
+              : ''
+          }  ${labelClassName}`}
+        >
+          {label}
+        </button>
+      ) : null}
     </div>
   );
 };
 
 Checkbox.propTypes = {
   onChange: PropTypes.func,
-  label: PropTypes.oneOfType([PropTypes.element, PropTypes.func, PropTypes.string, PropTypes.node]),
+  label: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.func,
+    PropTypes.string,
+    PropTypes.node,
+  ]),
   className: PropTypes.string,
   labelClassName: PropTypes.string,
   resetDefaultLabelClassName: PropTypes.bool,

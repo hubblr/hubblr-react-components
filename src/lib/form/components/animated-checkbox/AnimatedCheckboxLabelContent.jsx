@@ -4,7 +4,9 @@ import CheckmarkXL from './CheckmarkXL';
 import Checkmark from './Checkmark';
 
 const AnimatedCheckboxLabelContent = ({ size, checked, className }) => (
-  <div className={`animated-checkbox ${checked ? 'is-checked' : ''} ${className}`}>
+  <div
+    className={`animated-checkbox ${checked ? 'is-checked' : ''} ${className}`}
+  >
     <div className={`check ${size !== 'xl' ? '' : 'size-xl'}`}>
       <div>{size !== 'xl' ? <Checkmark /> : <CheckmarkXL />}</div>
     </div>

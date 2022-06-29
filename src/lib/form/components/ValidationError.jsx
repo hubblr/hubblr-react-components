@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { FormValidationErrorsContext } from "./Form";
-import withContext from "../../shared/util/hoc/withContext";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormValidationErrorsContext } from './Form';
+import withContext from '../../shared/util/hoc/withContext';
 
 const ValidationError = ({ fieldName, validationErrors, className }) => {
   const fieldNameArr = Array.isArray(fieldName) ? fieldName : [fieldName];
-  let errorMessage = "";
+  let errorMessage = '';
   // check all passed fields for errors, display the first if there are multiple
   for (let i = 0; i < fieldNameArr.length; i += 1) {
     const testedFieldName = fieldNameArr[i];
@@ -33,10 +33,10 @@ ValidationError.propTypes = {
 };
 
 ValidationError.defaultProps = {
-  className: "",
+  className: '',
 };
 
 export default withContext(
   FormValidationErrorsContext,
-  "validationErrors"
+  'validationErrors'
 )(ValidationError);

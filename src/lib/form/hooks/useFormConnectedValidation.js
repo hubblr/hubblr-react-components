@@ -1,9 +1,9 @@
-import { useCallback, useContext, useEffect } from "react";
+import { useCallback, useContext, useEffect } from 'react';
 import {
   FormInputContext,
   FormValidationErrorsContext,
-} from "../components/Form";
-import useRegisterComponentValidation from "./useRegisterComponentValidation";
+} from '../components/Form';
+import useRegisterComponentValidation from './useRegisterComponentValidation';
 
 export default function useFormConnectedValidation(
   groupName,

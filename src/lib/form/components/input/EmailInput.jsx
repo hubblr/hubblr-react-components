@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import isEmail from "validator/es/lib/isEmail";
-import Input from "../Input";
+import React from 'react';
+import PropTypes from 'prop-types';
+import isEmail from 'validator/es/lib/isEmail';
+import Input from '../Input';
 
 function EmailInput({
   value,
@@ -58,11 +58,11 @@ EmailInput.propTypes = {
 };
 
 EmailInput.defaultProps = {
-  placeholder: "email address",
-  label: "email address",
-  name: "email",
+  placeholder: 'email address',
+  label: 'email address',
+  name: 'email',
   maxLength: 255,
-  errorMsg: "Please enter a valid email address.",
+  errorMsg: 'Please enter a valid email address.',
   skipValidation: false,
 };
 
