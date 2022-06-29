@@ -7,7 +7,7 @@
     "components",
     "ui"
   ],
-  "version": "0.1.8",
+  "version": "0.1.11",
   "homepage": "https://hubblr.github.io/hubblr-react-components",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -16,6 +16,7 @@
     "dist",
     "README.md"
   ],
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@babel/runtime": "^7.18.3",
