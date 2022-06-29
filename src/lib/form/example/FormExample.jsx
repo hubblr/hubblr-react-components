@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/index.scss";
+import "../../../index.scss";
 import FormExampleSimple from "./FormExampleSimple";
 import FormExampleUser from "./FormExampleUser";
 

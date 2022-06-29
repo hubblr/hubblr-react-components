@@ -6,7 +6,7 @@
 import React, { Component } from 'react'
 
 import MyComponent from '@hubblr/form'
-import '@hubblr/form/dist/index.css'
+import '@hubblr/form/dist/index.scss'
 
 class FormExampleSimple extends Component {
   render() {
