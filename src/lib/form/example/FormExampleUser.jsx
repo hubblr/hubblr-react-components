@@ -30,8 +30,10 @@ function FormExampleUser() {
     email: 'patient-email-input',
   };
 
+  const [isSubmitAccepted, setIsSubmitAccepted] = useState(false);
+
   const onSubmit = () => {
-    console.log('SUBMIT!');
+    setIsSubmitAccepted(true);
   };
 
   return (
@@ -129,6 +131,8 @@ function FormExampleUser() {
           maxLength={128}
         />
       </div>
+      <button type="submit">SUBMIT</button>
+      {isSubmitAccepted && <div>Form submitted correctly!</div>}
     </Form>
   );
 }
